@@ -19,5 +19,15 @@ fn main() {
     println!("\nЗапуск test06:");
     variables::test06();
 
+    println!("\nЗапуск test07:");
+    variables::test07();
+
+    println!("\nЗапуск test08:");
+    variables::test08();
+
+    println!("\nЗапуск test09:");
+    variables::test09();
+
     println!("Всі тести пройдені успішно!");
+
 }
