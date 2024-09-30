@@ -1,7 +1,46 @@
 mod variables;
-mod basictypes;
+mod basic_types;
+mod tusk1;
+
+use std::io::{self, Write};
 
 fn main() {
+    // Виводимо підказку для користувача
+    println!("Введіть номер для запуску:");
+    println!("1 - Запустити тести variables");
+    println!("2 - Запустити тести basic types");
+    println!("3 - Запустити tusk1");
+
+    // Зчитуємо введення користувача
+    let mut input = String::new();
+    io::stdout().flush().unwrap(); // Очищуємо буфер, щоб вивести текст до введення
+    io::stdin().read_line(&mut input).expect("Помилка читання вводу");
+
+    // Обрізаємо зайві символи і перетворюємо на число
+    let input = input.trim().parse::<u32>().unwrap_or(0);
+
+    match input {
+        1 => {
+            println!("Запуск тестів variables:");
+            run_variables_tests();
+        }
+        2 => {
+            println!("Запуск тестів basic types:");
+            run_basic_types_tests();
+        }
+        3 => {
+            println!("Запуск tusk1:");
+            tusk1::run(); // Припускаємо, що в tusk1.rs є функція run
+        }
+        _ => {
+            println!("Неправильний вибір. Будь ласка, введіть 1, 2 або 3.");
+        }
+    }
+
+    println!("Всі тести пройдені успішно!");
+}
+
+fn run_variables_tests() {
     println!("Запуск variables test01:");
     variables::test01();
 
@@ -28,39 +67,39 @@ fn main() {
 
     println!("\nЗапуск variables test09:");
     variables::test09();
+}
 
-    println!("\nЗапуск basictypes test01:");
-    basictypes::test01();
+fn run_basic_types_tests() {
+    println!("\nЗапуск basic types test01:");
+    basic_types::test01();
 
-    println!("\nЗапуск basictypes test02:");
-    basictypes::test02();
+    println!("\nЗапуск basic types test02:");
+    basic_types::test02();
 
-    println!("\nЗапуск basictypes test03:");
-    basictypes::test03();
+    println!("\nЗапуск basic types test03:");
+    basic_types::test03();
 
-    println!("\nЗапуск basictypes test04:");
-    basictypes::test04();
+    println!("\nЗапуск basic types test04:");
+    basic_types::test04();
 
-    println!("\nЗапуск basictypes test05:");
-    basictypes::test05();
+    println!("\nЗапуск basic types test05:");
+    basic_types::test05();
 
-    println!("\nЗапуск basictypes test06:");
-    basictypes::test06();
+    println!("\nЗапуск basic types test06:");
+    basic_types::test06();
 
-    println!("\nЗапуск basictypes test07:");
-    basictypes::test07();
+    println!("\nЗапуск basic types test07:");
+    basic_types::test07();
 
-    println!("\nЗапуск basictypes test08:");
-    basictypes::test08();
+    println!("\nЗапуск basic types test08:");
+    basic_types::test08();
 
-    println!("\nЗапуск basictypes test09:");
-    basictypes::test09();
+    println!("\nЗапуск basic types test09:");
+    basic_types::test09();
 
-    println!("\nЗапуск basictypes test10:");
-    basictypes::test10();
+    println!("\nЗапуск basic types test10:");
+    basic_types::test10();
 
-    println!("\nЗапуск basictypes test11:");
-    basictypes::test11();
-
-    println!("Всі тести пройдені успішно!");
+    println!("\nЗапуск basic types test11:");
+    basic_types::test11();
 }

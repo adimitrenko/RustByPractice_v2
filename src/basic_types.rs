@@ -120,9 +120,9 @@ pub fn test11() {
     assert_eq!(24 % 5, 4);
 
 
-    assert!(!true == false);
-    assert!(true || false);
-    assert!(!(true && false));
+    assert_eq!(true , false);
+    assert!(!true || false);
+    assert!(!true && false);
 
     // Bitwise operations
     println!("0011 AND 0101 is {:04b}", 0b0011u32 & 0b0101);
