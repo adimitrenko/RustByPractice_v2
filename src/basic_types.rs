@@ -124,12 +124,140 @@ pub fn test11() {
     assert!(!true || false);
     assert!(!true && false);
 
-    // Bitwise operations
+
     println!("0011 AND 0101 is {:04b}", 0b0011u32 & 0b0101);
     println!("0011 OR 0101 is {:04b}", 0b0011u32 | 0b0101);
     println!("0011 XOR 0101 is {:04b}", 0b0011u32 ^ 0b0101);
     println!("1 << 5 is {}", 1u32 << 5);
     println!("0x80 >> 2 is 0x{:x}", 0x80u32 >> 2);
 }
+
+pub fn test12() {
+    let c1 = 'a';
+    assert_eq!(size_of_val(&c1), 4);
+
+    let c2 = '中';
+    assert_eq!(size_of_val(&c2), 4);
+
+    println!("Success!");
+}
+
+pub fn test13() {
+    let c1 = '中';
+    print_char(c1);
+}
+
+fn print_char(c: char) {
+    println!("{}", c);
+}
+
+pub fn test14() {
+    let _f: bool = false;
+
+    let t = false;
+    if !t {
+        println!("Success!");
+    }
+}
+
+pub fn  test15() {
+    let f = false;
+    let t = !true && false;
+    assert_eq!(t, f);
+
+    println!("Success!");
+}
+
+pub fn test16() {
+    let v = (2, 3);
+    assert_eq!(v, (2, 3));
+    println!("Success!");
+}
+
+fn implicitly_ret_unit() {
+    println!("I will return a ()");
+}
+
+pub fn test17() {
+    let unit: () = ();
+    assert_eq!(size_of_val(&unit), 0);
+
+    println!("Success!");
+}
+
+pub fn test18() {
+    let v = {
+        let mut x = 1;
+        x += 2;
+        x
+    };
+
+    assert_eq!(v, 3);
+    println!("Success!");
+}
+
+pub fn test19() {
+    let x = 3;
+    let v = x;
+    assert_eq!(v, 3);
+    println!("Success!");
+}
+
+pub fn test20() {
+    let s = sum(1, 2);
+    assert_eq!(s, 3);
+
+    println!("Success!");
+}
+
+fn sum(x: i32, y: i32) -> i32 {
+    x + y
+}
+
+pub fn test21() {
+    let (x, y) = (1, 2);
+    let s = sum2(x, y);
+
+    assert_eq!(s, 3);
+    println!("Success!");
+}
+
+fn sum2(x: i32, y: i32) -> i32 {
+    x + y
+}
+
+pub fn test22() {
+    print();
+}
+
+fn print() -> () {
+    println!("Success!");
+}
+
+pub fn test23() {
+    never_return();
+}
+
+fn never_return() -> ! {
+    panic!("This function never returns!");
+}
+
+pub fn test24() {
+    let b = false;
+
+    let _v = match b {
+        true => 1,
+        false => {
+            println!("Success!");
+            panic!("No value for false!");
+        }
+    };
+
+    println!("Exercise Failed if printing this line!");
+}
+
+
+
+
 
 
