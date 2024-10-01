@@ -1,6 +1,8 @@
 mod variables;
 mod basic_types;
 mod tusk1;
+mod ownership_and_borrowing;
+mod compound_types;
 
 use std::io::{self, Write};
 
@@ -10,6 +12,8 @@ fn main() {
     println!("1 - Запустити тести variables");
     println!("2 - Запустити тести basic types");
     println!("3 - Запустити tusk1");
+    println!("4 - Запустити тести Ownership and Borrowing");
+    println!("5 - Запустити тести Compound Types");
 
     // Зчитуємо введення користувача
     let mut input = String::new();
@@ -32,8 +36,16 @@ fn main() {
             println!("Запуск tusk1:");
             tusk1::run(); // Припускаємо, що в tusk1.rs є функція run
         }
+        4 => {
+            println!("Запуск тестів Ownership and Borrowing:");
+            run_ownership_and_borrowing_tests();
+        }
+        5 => {
+            println!("Запуск тестів Compound Types:");
+            run_compound_types_tests();
+        }
         _ => {
-            println!("Неправильний вибір. Будь ласка, введіть 1, 2 або 3.");
+            println!("Неправильний вибір. Будь ласка, введіть 1, 2, 3, 4 або 5.");
         }
     }
 
@@ -102,4 +114,78 @@ fn run_basic_types_tests() {
 
     println!("\nЗапуск basic types test11:");
     basic_types::test11();
+}
+
+fn run_ownership_and_borrowing_tests() {
+    println!("Запуск Ownership and Borrowing test1:");
+    ownership_and_borrowing::test1();
+
+    println!("\nЗапуск Ownership and Borrowing test2:");
+    ownership_and_borrowing::test2();
+
+    println!("\nЗапуск Ownership and Borrowing test3:");
+    ownership_and_borrowing::test3();
+
+    println!("\nЗапуск Ownership and Borrowing test4:");
+    ownership_and_borrowing::test4();
+
+    println!("\nЗапуск Ownership and Borrowing test5:");
+    ownership_and_borrowing::test5();
+
+    println!("\nЗапуск Ownership and Borrowing test6:");
+    ownership_and_borrowing::test6();
+
+    println!("\nЗапуск Ownership and Borrowing test7:");
+    ownership_and_borrowing::test7();
+
+    println!("\nЗапуск Ownership and Borrowing test8:");
+    ownership_and_borrowing::test8();
+
+    println!("\nЗапуск Ownership and Borrowing test9:");
+    ownership_and_borrowing::test9();
+
+    println!("\nЗапуск Ownership and Borrowing test10:");
+    ownership_and_borrowing::test10();
+
+    println!("\nЗапуск Ownership and Borrowing test11:");
+    ownership_and_borrowing::test11();
+}
+
+// Нова функція для запуску тестів Compound Types
+fn run_compound_types_tests() {
+    println!("\nЗапуск Compound Types test1:");
+    compound_types::test1();
+
+    println!("\nЗапуск Compound Types test2:");
+    compound_types::test2();
+
+    println!("\nЗапуск Compound Types test3:");
+    compound_types::test3();
+
+    println!("\nЗапуск Compound Types test4:");
+    compound_types::test4();
+
+    println!("\nЗапуск Compound Types test5:");
+    compound_types::test5();
+
+    println!("\nЗапуск Compound Types test6:");
+    compound_types::test6();
+
+    println!("\nЗапуск Compound Types test7:");
+    compound_types::test7();
+
+    println!("\nЗапуск Compound Types test8:");
+    compound_types::test8();
+
+    println!("\nЗапуск Compound Types test9:");
+    compound_types::test9();
+
+    println!("\nЗапуск Compound Types test10:");
+    compound_types::test10();
+
+    println!("\nЗапуск Compound Types test11:");
+    compound_types::test11();
+
+    println!("\nЗапуск Compound Types test12:");
+    compound_types::test12();
 }
