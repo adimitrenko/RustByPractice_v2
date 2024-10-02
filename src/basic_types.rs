@@ -1,4 +1,5 @@
 
+#[test]
 pub fn test01() {
     let x = 5;
     let mut y: u32 = 5;
@@ -13,13 +14,14 @@ pub fn test01() {
     println!("Success!");
 }
 
-
+#[test]
 pub fn test02() {
     let _v: u16 = 38_u8 as u16;
 
     println!("Success!");
 }
 
+#[test]
 pub fn test03() {
     let x = 5;
     assert_eq!("i32".to_string(), type_of(&x));
@@ -27,11 +29,12 @@ pub fn test03() {
     println!("Success!");
 }
 
+
 fn type_of<T>(_: &T) -> String {
     format!("{}", std::any::type_name::<T>())
 }
 
-
+#[test]
 pub fn test04() {
     assert_eq!(i8::MAX, 127);
     assert_eq!(u8::MAX, 255);
@@ -39,7 +42,7 @@ pub fn test04() {
     println!("Success!");
 }
 
-
+#[test]
 pub fn test05() {
     let v1 = 251_u8.wrapping_add(8);
     let v2 = i8::checked_add(120, 8).unwrap_or_else(|| {
@@ -50,7 +53,7 @@ pub fn test05() {
 }
 
 
-
+#[test]
 pub fn test06() {
     let v = 1_024 + 0xff + 0o77 + 0b1111_1111;
     assert_eq!(v, 1597);
@@ -59,7 +62,7 @@ pub fn test06() {
 }
 
 
-
+#[test]
 pub fn test07() {
     let x = 1_000.000_1;
     let _y: f32 = 0.12;
@@ -70,6 +73,7 @@ pub fn test07() {
 }
 
 
+#[test]
 pub fn test08() {
 
     assert!((0.1f64 + 0.2f64 - 0.3f64).abs() < f64::EPSILON);
@@ -78,7 +82,7 @@ pub fn test08() {
 }
 
 
-
+#[test]
 pub fn test09() {
     let mut sum = 0;
     for i in -3..2 {
@@ -94,7 +98,7 @@ pub fn test09() {
 }
 
 
-
+#[test]
 pub fn test10() {
     use std::ops::{Range, RangeInclusive};
 
@@ -104,7 +108,7 @@ pub fn test10() {
     println!("Success!");
 }
 
-
+#[test]
 pub fn test11() {
 
     assert_eq!(1u32 + 2, 3);
@@ -132,6 +136,7 @@ pub fn test11() {
     println!("0x80 >> 2 is 0x{:x}", 0x80u32 >> 2);
 }
 
+#[test]
 pub fn test12() {
     let c1 = 'a';
     assert_eq!(size_of_val(&c1), 4);
@@ -142,6 +147,7 @@ pub fn test12() {
     println!("Success!");
 }
 
+#[test]
 pub fn test13() {
     let c1 = '中';
     print_char(c1);
@@ -151,6 +157,7 @@ fn print_char(c: char) {
     println!("{}", c);
 }
 
+#[test]
 pub fn test14() {
     let _f: bool = false;
 
@@ -160,6 +167,7 @@ pub fn test14() {
     }
 }
 
+#[test]
 pub fn  test15() {
     let f = false;
     let t = !true && false;
@@ -168,16 +176,16 @@ pub fn  test15() {
     println!("Success!");
 }
 
+#[test]
 pub fn test16() {
     let v = (2, 3);
     assert_eq!(v, (2, 3));
     println!("Success!");
 }
 
-fn implicitly_ret_unit() {
-    println!("I will return a ()");
-}
 
+
+#[test]
 pub fn test17() {
     let unit: () = ();
     assert_eq!(size_of_val(&unit), 0);
@@ -185,6 +193,7 @@ pub fn test17() {
     println!("Success!");
 }
 
+#[test]
 pub fn test18() {
     let v = {
         let mut x = 1;
@@ -196,6 +205,7 @@ pub fn test18() {
     println!("Success!");
 }
 
+#[test]
 pub fn test19() {
     let x = 3;
     let v = x;
@@ -203,6 +213,7 @@ pub fn test19() {
     println!("Success!");
 }
 
+#[test]
 pub fn test20() {
     let s = sum(1, 2);
     assert_eq!(s, 3);
@@ -214,6 +225,7 @@ fn sum(x: i32, y: i32) -> i32 {
     x + y
 }
 
+#[test]
 pub fn test21() {
     let (x, y) = (1, 2);
     let s = sum2(x, y);
@@ -226,6 +238,7 @@ fn sum2(x: i32, y: i32) -> i32 {
     x + y
 }
 
+#[test]
 pub fn test22() {
     print();
 }
@@ -234,6 +247,7 @@ fn print() -> () {
     println!("Success!");
 }
 
+#[test]
 pub fn test23() {
     never_return();
 }
@@ -242,6 +256,7 @@ fn never_return() -> ! {
     panic!("This function never returns!");
 }
 
+#[test]
 pub fn test24() {
     let b = false;
 

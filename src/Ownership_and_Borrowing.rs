@@ -1,5 +1,5 @@
 
-
+#[test]
 pub fn test1() {
 
     let x = String::from("Hello world");
@@ -7,6 +7,7 @@ pub fn test1() {
     println!("{}, {}", x, y);
 }
 
+#[test]
 pub fn test2() {
     let s1 = String::from("Hello world");
     let s2 = take_ownership(s1);
@@ -19,6 +20,7 @@ fn take_ownership(s: String) -> String {
     s
 }
 
+#[test]
 pub fn test3() {
     let s = give_ownership();
     println!("{}", s);
@@ -31,6 +33,7 @@ fn give_ownership() -> String {
     s
 }
 
+#[test]
 pub fn test4() {
     let s = String::from("Hello World");
 
@@ -43,6 +46,7 @@ fn print_str(s: &String) {
     println!("{}", s)
 }
 
+#[test]
 pub fn test5() {
     let x = (1, 2, (), "hello".to_string());
     let y = x.clone();
@@ -50,7 +54,7 @@ pub fn test5() {
 }
 
 
-
+#[test]
 pub fn test6() {
     let mut s = String::from("Hello ");
     s.push_str("World!");
@@ -58,6 +62,7 @@ pub fn test6() {
     println!("Success!");
 }
 
+#[test]
 pub fn test7() {
     let x = Box::new(5);
     let mut y = Box::new(5); // create a mutable Box
@@ -69,7 +74,7 @@ pub fn test7() {
     println!("Success!");
 }
 
-
+#[test]
 pub fn test8() {
     let t = (String::from("hello"), String::from("world"));
 
@@ -78,6 +83,7 @@ pub fn test8() {
     println!("{:?}, {:?}", s, t);
 }
 
+#[test]
 pub fn test9() {
     let t = (String::from("hello"), String::from("world"));
 
@@ -86,7 +92,7 @@ pub fn test9() {
     println!("{:?}, {:?}, {:?}", s1, s2, t);
 }
 
-
+#[test]
 pub fn test10() {
     let x = 5;
     let p = &x;
@@ -94,6 +100,7 @@ pub fn test10() {
     println!("the memory address of x is {:p}", p);
 }
 
+#[test]
 pub fn test11() {
     let x = 5;
     let y = &x;
