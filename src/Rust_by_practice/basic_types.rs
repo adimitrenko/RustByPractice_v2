@@ -1,4 +1,4 @@
-
+// Numbers
 #[test]
 pub fn test01() {
     let x = 5;
@@ -108,6 +108,7 @@ pub fn test10() {
     println!("Success!");
 }
 
+// Char, Bool and Unit
 #[test]
 pub fn test11() {
 
@@ -193,6 +194,7 @@ pub fn test17() {
     println!("Success!");
 }
 
+// Statements and Expressions
 #[test]
 pub fn test18() {
     let v = {
@@ -225,6 +227,7 @@ fn sum(x: i32, y: i32) -> i32 {
     x + y
 }
 
+// Functions
 #[test]
 pub fn test21() {
     let (x, y) = (1, 2);

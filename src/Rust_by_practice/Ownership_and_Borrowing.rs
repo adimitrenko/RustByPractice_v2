@@ -1,4 +1,4 @@
-
+// Ownership
 #[test]
 pub fn test1() {
 
@@ -92,12 +92,13 @@ pub fn test9() {
     println!("{:?}, {:?}, {:?}", s1, s2, t);
 }
 
+// Reference and Borrowing
 #[test]
 pub fn test10() {
     let x = 5;
     let p = &x;
 
-    println!("the memory address of x is {:p}", p);
+    println!("адреса пам'яті x є {:p}", p);
 }
 
 #[test]

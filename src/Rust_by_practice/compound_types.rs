@@ -1,3 +1,4 @@
+// String
 #[test]
 pub fn test1() {
     let _s: &str = "hello, world";
@@ -65,29 +66,29 @@ pub fn test8() {
 
 #[test]
 pub fn test9() {
-    let byte_escape = "I'm writing Ru\x73t!";
-    println!("What are you doing\x3F (\\x3F means ?) {}", byte_escape);
+    let byte_escape = "Я пишу Ua\x73t!";
+    println!("Що ти робиш\x3F (\\x3F тут ?) {}", byte_escape);
 
     let unicode_codepoint = "\u{211D}";
     let character_name = "\"DOUBLE-STRUCK CAPITAL R\"";
-    println!("Unicode character {} (U+211D) is called {}", unicode_codepoint, character_name);
+    println!("Unicode символ {} (U+211D) викликає {}", unicode_codepoint, character_name);
 
-    let long_string = "String literals
-                        can span multiple lines.
-                        The linebreak and indentation here \
-                         can be escaped too!";
+    let long_string = "Рядкові літерали
+                        може охоплювати кілька рядків.
+                        Розрив рядка та відступ тут \
+                         також можна втекти";
     println!("{}", long_string);
 }
 
 #[test]
 pub fn test10() {
-    let raw_str = "Escapes don't work here: ? ℝ";
-    assert_eq!(raw_str, "Escapes don't work here: ? ℝ");
+    let raw_str = "Втечі тут не працюють: ? ℝ";
+    assert_eq!(raw_str, "Втечі тут не працюють: ? ℝ");
 
-    let quotes = r#"And then I said: "There is no escape!""#;
+    let quotes = r#"І тоді я сказав: «Немає порятунку!""#;
     println!("{}", quotes);
 
-    let delimiter = r###"A string with "# in it. And even "##!"###;
+    let delimiter = r###"Рядок із "#". І навіть "##!"###;
     println!("{}", delimiter);
 
     let long_delimiter = r"Hello";
@@ -99,10 +100,10 @@ pub fn test10() {
 #[test]
 pub fn test11() {
     let s1 = String::from("hi,中国");
-    let h = &s1[0..1]; // Take the first byte as a &str
+    let h = &s1[0..1];
     assert_eq!(h, "h");
 
-    let h1 = &s1[3..6]; // Slice "中", which is 3 bytes in UTF-8
+    let h1 = &s1[3..6];
     assert_eq!(h1, "中");
 
     println!("Success!");
@@ -114,3 +115,6 @@ pub fn test12() {
         println!("{}", c);
     }
 }
+
+// Array
+
