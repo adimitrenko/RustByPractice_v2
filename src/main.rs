@@ -9,10 +9,6 @@ mod tusk {
     pub mod tusk1;
 }
 
-mod hacker_rank {
-    pub mod apple_and_orange;
-}
-
 
 fn main() {
 
