@@ -246,3 +246,409 @@ fn first_letter(s: &str) -> &str {
     &s[..1]
 }
 
+// Tuple
+#[test]
+pub fn test25() {
+    let _t0: (u8, i16) = (0, -1);
+    let _t1: (u8, (i16, u32)) = (0, (-1, 1));
+    let _t: (u8, u16, i64, &str, String) = (1u8, 2u16, 3i64, "hello", String::from(", world"));
+
+    println!("Success!");
+}
+
+#[test]
+pub fn test26() {
+    let t = ("i", "am", "sunface");
+    assert_eq!(t.2, "sunface");
+
+    println!("Success!");
+}
+
+#[test]
+pub fn test27() {
+    let too_long_tuple = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+    println!("too long tuple: {:?}", too_long_tuple);
+}
+
+#[test]
+pub fn test28() {
+    let tup = (1, 6.4, "hello");
+
+    let (x, z, y) = tup;
+
+    assert_eq!(x, 1);
+    assert_eq!(y, "hello");
+    assert_eq!(z, 6.4);
+
+    println!("Success!");
+}
+
+#[test]
+pub fn test29() {
+    let (x, y, z);
+
+    (y, z, x) = (1, 2, 3);
+
+    assert_eq!(x, 3);
+    assert_eq!(y, 1);
+    assert_eq!(z, 2);
+
+    println!("Success!");
+}
+
+#[test]
+pub fn test30() {
+    let (x, y) = sum_multiply((2, 3));
+
+    assert_eq!(x, 5);
+    assert_eq!(y, 6);
+
+    println!("Success!");
+}
+
+fn sum_multiply(nums: (i32, i32)) -> (i32, i32) {
+    (nums.0 + nums.1, nums.0 * nums.1)
+}
+
+// Struct
+
+struct Person {
+    name: String,
+    age: u8,
+    hobby: String,
+}
+
+#[test]
+pub fn test31() {
+    let age = 30;
+    let _p = Person {
+        name: String::from("sunface"),
+        age,
+        hobby: String::from("coding"),
+    };
+
+    println!("Success!");
+}
+
+struct Unit;
+trait SomeTrait {
+
+}
+
+impl SomeTrait for Unit { }
+
+#[test]
+pub fn test32() {
+    let u = Unit;
+    do_something_with_unit(u);
+
+    println!("Success!");
+}
+
+fn do_something_with_unit(_u: Unit) { }
+
+
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+#[test]
+pub fn test33() {
+    let v = Color(0, 127, 255);
+    check_color(v);
+
+    println!("Success!");
+}
+
+fn check_color(p: Color) {
+    let x = p.0;
+    let y = p.1;
+    let z = p.2;
+
+    assert_eq!(x, 0);
+    assert_eq!(y, 127);
+    assert_eq!(z, 255);
+}
+
+
+
+struct Person2 {
+    name: String,
+    age: u8,
+}
+
+#[test]
+pub fn test34() {
+    let age = 18;
+    let mut p = Person2 {
+        name: String::from("sunface"),
+        age,
+    };
+
+    p.age = 30;
+
+    p.name = String::from("sunfei");
+
+    println!("Success!");
+}
+
+struct Person3 {
+    name: String,
+    age: u8,
+}
+pub fn test35() {
+    println!("Success!");
+}
+
+fn build_person(name: String, age: u8) -> Person3 {
+    Person3 {
+        age,
+        name,
+    }
+}
+
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+#[test]
+pub fn test36() {
+    let u1 = User {
+        email: String::from("someone@example.com"),
+        username: String::from("sunface"),
+        active: true,
+        sign_in_count: 1,
+    };
+
+    let _u2 = set_email(u1);
+
+    println!("Success!");
+}
+
+fn set_email(u: User) -> User {
+    User {
+        email: String::from("contact@im.dev"),
+        ..u
+    }
+}
+
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+#[test]
+pub fn test37() {
+    let scale = 2;
+    let rect1 = Rectangle {
+        width: dbg!(30 * scale),
+        height: 50,
+    };
+
+    dbg!(&rect1);
+
+    println!("{:?}", rect1);
+}
+
+#[derive(Debug)]
+struct File {
+    name: String,
+    data: String,
+}
+
+#[test]
+pub fn test38() {
+    let f = File {
+        name: String::from("readme.md"),
+        data: "Rust By Practice".to_string(),
+    };
+
+    let _name = &f.name;
+
+    println!("{}, {}", _name, f.data);
+}
+
+// Enum
+
+
+// Виправте помилки
+enum Number {
+    Zero,
+    One,
+    Two,
+}
+
+enum Number1 {
+    Zero = 0,
+    One = 1,
+    Two = 2,
+}
+
+// Енум, схожий на C
+enum Number2 {
+    Zero = 0,
+    One = 1,
+    Two = 2,
+}
+
+
+#[test]
+pub fn test39() {
+    // Варіант енуму можна перетворити в ціле число через `as`
+    assert_eq!(Number1::One as i32, 1);
+    assert_eq!(Number2::One as i32, 1);
+
+    println!("Успіх!");
+}
+
+
+// Заповніть пропуски
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+#[test]
+pub fn test40() {
+    let _msg1 = Message::Move { x: 1, y: 2 }; // Ініціалізація з x = 1, y = 2
+    let _msg2 = Message::Write(String::from("hello, world!")); // Ініціалізація з "hello, world!"
+
+    println!("Успіх!");
+}
+
+// Заповніть пропуски та виправте помилки
+enum Message2 {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+#[test]
+pub fn test41() {
+    let msg = Message2::Move { x: 1, y: 2 };
+
+    if let Message2::Move { x: a, y: b } = msg {
+        assert_eq!(a, 1);
+        assert_eq!(b, 2);
+    } else {
+        panic!("Цього ніколи не має відбутись!");
+    }
+
+    println!("Успіх!");
+}
+
+
+// Заповніть пропуски та виправте помилки
+enum Message3 {
+    Quit,
+    Move { x: i32, y: i32 },
+    ChangeColor(i32, i32, i32),
+}
+
+#[test]
+pub fn test42() {
+    let msgs: [Message3; 3] = [
+        Message3::Quit,
+        Message3::Move { x: 1, y: 3 },
+        Message3::ChangeColor(255, 255, 0),
+    ];
+
+    for msg in msgs {
+        show_message(msg);
+    }
+
+    println!("Успіх!");
+}
+
+fn show_message(msg: Message3) {
+    match msg {
+        Message3::Quit => println!("Quit"),
+        Message3::Move { x, y } => println!("Move to ({}, {})", x, y),
+        Message3::ChangeColor(r, g, b) => println!("Change color to RGB({}, {}, {})", r, g, b),
+    }
+}
+
+// Заповніть пропуски, щоб зробити `println` робочим.
+// Також додайте код, щоб запобігти виконанню `panic`.
+#[test]
+pub fn test43() {
+    let five = Some(5);
+    let six = plus_one(five);
+    let _none = plus_one(None);
+
+    if let Some(n) = six {
+        println!("{}", n);
+
+        println!("Успіх!");
+    }
+
+    panic!("Цього ніколи не має відбутись!");
+}
+
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i + 1),
+    }
+}
+
+enum List {
+    // Cons: Кортежна структура, що обгортає елемент та вказівник на наступний вузол
+    Cons(u32, Box<List>),
+    // Nil: Вузол, що позначає кінець зв'язаного списку
+    Nil,
+}
+
+// Методи можуть бути прикріплені до енуму
+impl List {
+    // Створює порожній список
+    fn new() -> List {
+        List::Nil
+    }
+
+    // Споживає список і повертає той же список з новим елементом на початку
+    fn prepend(self, elem: u32) -> List {
+        List::Cons(elem, Box::new(self))
+    }
+
+    // Повертає довжину списку
+    fn len(&self) -> u32 {
+        match *self {
+            List::Cons(_, ref tail) => 1 + tail.len(),
+            List::Nil => 0,
+        }
+    }
+
+    // Повертає представлення списку як (розподілену в купі) строку
+    fn stringify(&self) -> String {
+        match *self {
+            List::Cons(head, ref tail) => {
+                format!("{}, {}", head, tail.stringify())
+            }
+            List::Nil => {
+                "Nil".to_string() // Замінено `format!` на `to_string`
+            }
+        }
+    }
+}
+
+#[test]
+pub fn test44() {
+    // Створення порожнього зв'язаного списку
+    let mut list = List::new();
+
+    // Додавання елементів
+    list = list.prepend(1);
+    list = list.prepend(2);
+    list = list.prepend(3);
+
+    // Показ фінального стану списку
+    println!("Зв'язаний список має довжину: {}", list.len());
+    println!("{}", list.stringify());
+}
