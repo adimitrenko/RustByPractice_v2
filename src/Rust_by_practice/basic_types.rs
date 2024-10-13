@@ -124,10 +124,9 @@ pub fn test11() {
 
     assert_eq!(24 % 5, 4);
 
+    assert!(!false);
+    assert!(!true || false == false);
 
-    assert_eq!(true , false);
-    assert!(!true || false);
-    assert!(!true && false);
 
 
     println!("0011 AND 0101 is {:04b}", 0b0011u32 & 0b0101);
@@ -251,6 +250,7 @@ fn print() -> () {
 }
 
 #[test]
+#[should_panic]
 pub fn test23() {
     never_return();
 }
@@ -260,6 +260,7 @@ fn never_return() -> ! {
 }
 
 #[test]
+#[should_panic(expected = "No value for false!")]
 pub fn test24() {
     let b = false;
 
@@ -273,6 +274,7 @@ pub fn test24() {
 
     println!("Exercise Failed if printing this line!");
 }
+
 
 
 

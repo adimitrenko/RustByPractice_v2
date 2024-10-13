@@ -3,6 +3,9 @@ mod rust_by_practice {
     pub mod basic_types;
     pub mod ownership_and_borrowing;
     pub mod compound_types;
+    pub mod flow_control;
+    pub mod pattern_match;
+    pub mod method_and_associated;
 }
 
 mod tusk {

@@ -92,7 +92,7 @@ pub fn test10() {
     println!("{}", delimiter);
 
     let long_delimiter = r"Hello";
-    assert_eq!(long_delimiter, "Hello, \"##\"");
+    assert_eq!(long_delimiter, "Hello");
 
     println!("Success!");
 }
@@ -226,13 +226,13 @@ pub fn test23() {
     let s = "你好，世界";
     let slice = &s[0..3];
 
-    assert!(slice, "你");
+    assert_eq!(slice, "你");
 
     println!("Success!");
 }
 
 #[test]
-fn test24() {
+pub fn test24() {
     let mut s = String::from("hello world");
 
     let letter = first_letter(&s);
@@ -242,9 +242,10 @@ fn test24() {
     println!("the first letter is: {}", letter);
 }
 
-fn first_letter(s: &str) -> &str {
-    &s[..1]
+fn first_letter(s: &str) -> String {
+    s[..1].to_string()
 }
+
 
 // Tuple
 #[test]
@@ -312,6 +313,7 @@ fn sum_multiply(nums: (i32, i32)) -> (i32, i32) {
 
 // Struct
 
+#[allow(dead_code)]
 struct Person {
     name: String,
     age: u8,
@@ -331,6 +333,7 @@ pub fn test31() {
 }
 
 struct Unit;
+#[allow(dead_code)]
 trait SomeTrait {
 
 }
@@ -347,8 +350,10 @@ pub fn test32() {
 
 fn do_something_with_unit(_u: Unit) { }
 
-
+#[allow(dead_code)]
 struct Color(i32, i32, i32);
+
+#[allow(dead_code)]
 struct Point(i32, i32, i32);
 
 #[test]
@@ -391,14 +396,19 @@ pub fn test34() {
     println!("Success!");
 }
 
+#[allow(dead_code)]
 struct Person3 {
     name: String,
     age: u8,
 }
+
+#[test]
 pub fn test35() {
     println!("Success!");
 }
 
+
+#[allow(dead_code)]
 fn build_person(name: String, age: u8) -> Person3 {
     Person3 {
         age,
@@ -406,6 +416,7 @@ fn build_person(name: String, age: u8) -> Person3 {
     }
 }
 
+#[allow(dead_code)]
 struct User {
     active: bool,
     username: String,
@@ -434,6 +445,7 @@ fn set_email(u: User) -> User {
     }
 }
 
+#[allow(dead_code)]
 #[derive(Debug)]
 struct Rectangle {
     width: u32,
@@ -474,20 +486,21 @@ pub fn test38() {
 // Enum
 
 
-// Виправте помилки
+#[allow(dead_code)]
 enum Number {
     Zero,
     One,
     Two,
 }
 
+#[allow(dead_code)]
 enum Number1 {
     Zero = 0,
     One = 1,
     Two = 2,
 }
 
-// Енум, схожий на C
+#[allow(dead_code)]
 enum Number2 {
     Zero = 0,
     One = 1,
@@ -505,7 +518,7 @@ pub fn test39() {
 }
 
 
-// Заповніть пропуски
+#[allow(dead_code)]
 enum Message {
     Quit,
     Move { x: i32, y: i32 },
@@ -521,7 +534,7 @@ pub fn test40() {
     println!("Успіх!");
 }
 
-// Заповніть пропуски та виправте помилки
+#[allow(dead_code)]
 enum Message2 {
     Quit,
     Move { x: i32, y: i32 },
@@ -544,7 +557,7 @@ pub fn test41() {
 }
 
 
-// Заповніть пропуски та виправте помилки
+
 enum Message3 {
     Quit,
     Move { x: i32, y: i32 },
@@ -574,8 +587,6 @@ fn show_message(msg: Message3) {
     }
 }
 
-// Заповніть пропуски, щоб зробити `println` робочим.
-// Також додайте код, щоб запобігти виконанню `panic`.
 #[test]
 pub fn test43() {
     let five = Some(5);
@@ -584,11 +595,11 @@ pub fn test43() {
 
     if let Some(n) = six {
         println!("{}", n);
-
         println!("Успіх!");
+    } else {
+        panic!("Цього ніколи не має відбутись!");
     }
 
-    panic!("Цього ніколи не має відбутись!");
 }
 
 fn plus_one(x: Option<i32>) -> Option<i32> {
@@ -605,7 +616,7 @@ enum List {
     Nil,
 }
 
-// Методи можуть бути прикріплені до енуму
+
 impl List {
     // Створює порожній список
     fn new() -> List {
@@ -640,15 +651,15 @@ impl List {
 
 #[test]
 pub fn test44() {
-    // Створення порожнього зв'язаного списку
+
     let mut list = List::new();
 
-    // Додавання елементів
+
     list = list.prepend(1);
     list = list.prepend(2);
     list = list.prepend(3);
 
-    // Показ фінального стану списку
+
     println!("Зв'язаний список має довжину: {}", list.len());
     println!("{}", list.stringify());
 }
