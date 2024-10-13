@@ -11,6 +11,7 @@ mod rust_by_practice {
 mod tusk {
     pub mod tusk1;
     pub mod tusk2;
+    pub mod tusk3;
 }
 
 

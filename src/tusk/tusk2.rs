@@ -8,7 +8,7 @@ pub fn run () {
                 0 => "**",
                 _ => " ",
             };
-            println!("{s}");
+            print!("{s}");
         }
         println!();
     }
