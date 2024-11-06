@@ -1,4 +1,6 @@
-
+mod prac {
+    pub mod prac_11;
+}
 
 mod rust_by_practice {
     pub mod variables;
@@ -41,6 +43,23 @@ mod rust_by_practice {
 
     pub mod ten_generics_and_traits {
         pub mod generics;
+
+        pub mod const_generics {
+            pub mod tusk1;
+            pub mod tusk2;
+            pub mod tusk3;
+        }
+        pub mod traits {
+            pub mod tusk1;
+            pub mod tusk2;
+            pub mod tusk3;
+            pub mod tusk4;
+            pub mod tusk5;
+            pub mod tusk6;
+            pub mod tusk7;
+            pub mod tusk8;
+            pub mod tusk9;
+        }
     }
 
 }
