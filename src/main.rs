@@ -1,3 +1,5 @@
+
+
 mod prac {
     pub mod prac_11;
 }
@@ -41,7 +43,7 @@ mod rust_by_practice {
         pub mod test5;
     }
 
-    pub mod ten_generics_and_traits {
+    pub mod generics_and_traits {
         pub mod generics;
 
         pub mod const_generics {
